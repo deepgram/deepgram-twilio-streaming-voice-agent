@@ -282,6 +282,7 @@ const setupDeepgram = (mediaStream) => {
               "streamSid": streamSid,
             });
             mediaStream.connection.sendUTF(messageJSON);
+            mediaStream.deepgramTTSWebsocket.send(JSON.stringify({'type': 'Reset'}));
             speaking = false;
           }
         }
