@@ -164,6 +164,7 @@ async function promptLLM(mediaStream, prompt){
       }
     }
   }
+  // Tell TTS Websocket were finished generation of tokens
   mediaStream.deepgramTTSWebsocket.send(JSON.stringify({'type': 'Flush'}));
 }
 
