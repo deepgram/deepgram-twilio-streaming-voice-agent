@@ -1,4 +1,4 @@
-# Deepgram Streaming Voice Agent
+# Callable Deepgram <> Twilio Streaming Voice Agent
 
 This is a basic server application that show cases end to end streaming voice agent
 
