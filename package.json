@@ -1,0 +1,23 @@
+{
+  "name": "deepgram-streaming-voice-agent",
+  "version": "0.0.1",
+  "description": "Streaming Voice Agent Sample",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@deepgram/sdk": "^3.4.4",
+    "dotenv": "^16.4.5",
+    "httpdispatcher": "^2.1.2",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.52.7",
+    "websocket": "^1.0.28"
+  }
+}
