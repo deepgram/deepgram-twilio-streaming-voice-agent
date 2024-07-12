@@ -2,6 +2,7 @@
 
 This is a basic server application that show cases end to end streaming voice agent
 
+* Callable Phone Number
 * Streaming Twilio - Inbound Audio
 * Streaming Deepgram - Speech to Text
 * Streaming OpenAI - LLM
@@ -31,11 +32,18 @@ npm dependencies (contained in the `package.json`):
 
 #### Running the server
 
-Start with `npm run start`r
+Start with `npm run start`
 
 ## Setup
 
 You can setup your environment to run the demo by using the CLI.
+
+## Configure using the UI
+
+Make sure ngrok is running so the url does not change:
+* Purchase a number
+* Set the webhook url to your ngrok url (eg. https://<NGROK_URL>/twiml)
+* Call the number and chat to your bot
 
 ### Configure using the CLI
 
