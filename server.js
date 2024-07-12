@@ -164,6 +164,7 @@ async function promptLLM(mediaStream, prompt){
       }
     }
   }
+  mediaStream.deepgramTTSWebsocket.send(JSON.stringify({'type': 'Flush'}));
 }
 
 /* 
