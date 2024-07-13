@@ -46,6 +46,15 @@ function handleRequest(request, response) {
 }
 
 /* 
+ Easy Debug Endpoint
+*/
+dispatcher.onGet("/", function(req, res) {
+  console.log('GET /');
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello, World!');
+});
+
+/* 
  Twilio streams.xml
 */
 dispatcher.onPost("/twiml", function (req, res) {
