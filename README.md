@@ -39,6 +39,19 @@ Start with `npm run start`
 You can setup your environment to run the demo by using the CLI.
 
 ## Configure using the UI
+1. Install ngrok and sign up for a ngrok account 
+If on MacOS: 
+`brew install ngrok/ngrok/ngrok`
+
+If on Windows/Linux: 
+Follow instructions on ngrok's site: https://ngrok.com/docs/getting-started/
+
+2. Sign up for a ngrok account 
+- If you haven't already, sign up for an ngrok account: https://dashboard.ngrok.com/get-started/setup/macos 
+- Copy your ngrok authtoken from your ngrok dashboard: https://dashboard.ngrok.com/get-started/your-authtoken 
+- Run the following command in your terminal to install the authtoken and connect the ngrok agent to your account.
+`ngrok config add-authtoken <TOKEN>`
+
 
 Make sure ngrok is running so the url does not change:
 * Purchase a number
@@ -60,12 +73,16 @@ twilio api:core:incoming-phone-numbers:create --phone-number="+123456789"`
 ```
 
 3. Start ngrok
+On a separate terminal (not the one where you have run `npm run start`): 
 
 ```bash
 ngrok http 8080
 ```
 
+You will see a url under the `Forwarding`row that --> to your localhost. Copy this as the `<ngrok urk>`
+
 4. Edit the `templates/streams` file to replace `<ngrok url>` with your ngrok host.
+
 
 5. Make the call where `+123456789` is the Twilio number you bought and `+19876543210` is your phone number and `abcdef.ngrok.io` is your ngrok host.
 
