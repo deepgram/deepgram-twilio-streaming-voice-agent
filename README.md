@@ -99,7 +99,7 @@ ngrok http 8080
 
 You will see a url under the `Forwarding`row that --> to your localhost. Copy this as the `<ngrok url>`
 
-5. Edit the [templates/streams](templates/streams.xml) file to replace `<ngrok url>` with your ngrok host. Example: `https://https://abcdef.ngrok.io/twiml`
+5. Edit the [templates/streams](templates/streams.xml) file to replace `<ngrok url>` with your ngrok host. Example: `https://https://abcdef.ngrok.io/streams`
 
 ### Call the number and chat to your bot.
 
