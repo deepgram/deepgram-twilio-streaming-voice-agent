@@ -63,8 +63,6 @@ Start with `npm run start`
 ngrok config add-authtoken <TOKEN>
 ```
 
-> Make sure ngrok is running so the url does not change!
-
 ### Twilio Phone Number Setup
 
 - You will need to provide a valid phone number from Twilio. Please see these [instructions](https://help.twilio.com/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console) to do so.
@@ -96,6 +94,7 @@ On a separate terminal (not the one where you have run `npm run start`):
 ```sh
 ngrok http 8080
 ```
+> If you restart your ngrok server your `ngrok url` will change.
 
 You will see a url under the `Forwarding`row that --> to your localhost. Copy this as the `<ngrok url>`
 
