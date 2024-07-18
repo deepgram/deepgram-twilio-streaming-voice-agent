@@ -37,6 +37,8 @@ let llmStart = 0;
 let ttsStart = 0;
 let firstByte = true;
 let speaking = false;
+let send_first_sentence_input_time = null;
+const chars_to_check = [".", ",", "!", "?", ";", ":"]
 
 // Function to handle HTTP requests
 function handleRequest(request, response) {
@@ -173,12 +175,23 @@ async function promptLLM(mediaStream, prompt) {
       chunk_message = chunk.choices[0].delta.content;
       if (chunk_message) {
         process.stdout.write(chunk_message)
+        if (!send_first_sentence_input_time && containsAnyChars(chunk_message)){
+          send_first_sentence_input_time = Date.now();
+        }
         mediaStream.deepgramTTSWebsocket.send(JSON.stringify({ 'type': 'Speak', 'text': chunk_message }));
       }
     }
   }
   // Tell TTS Websocket were finished generation of tokens
   mediaStream.deepgramTTSWebsocket.send(JSON.stringify({ 'type': 'Flush' }));
+}
+
+function containsAnyChars(str) {
+  // Convert the string to an array of characters
+  let strArray = Array.from(str);
+  
+  // Check if any character in strArray exists in chars_to_check
+  return strArray.some(char => chars_to_check.includes(char));
 }
 
 /*
@@ -213,6 +226,9 @@ const setupDeepgramWebsocket = (mediaStream) => {
         const duration = end - ttsStart;
         console.warn('\n\n>>> deepgram TTS: Time to First Byte = ', duration, '\n');
         firstByte = false;
+        if (send_first_sentence_input_time){
+          console.log(`>>> deepgram TTS: Time to First Byte from end of sentence token = `, (end - send_first_sentence_input_time));
+        }
       }
       const payload = data.toString('base64');
       const message = {
