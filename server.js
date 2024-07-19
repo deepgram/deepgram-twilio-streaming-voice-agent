@@ -214,10 +214,8 @@ const setupDeepgramWebsocket = (mediaStream) => {
     if (speaking) {
       try {
         let json = JSON.parse(data.toString());
-        if (json.type == 'Metadata') {
-          console.log('deepgram TTS: ', data.toString());
-          return;
-        }
+        console.log('deepgram TTS: ', data.toString());
+        return;
       } catch (e) {
         // Ignore
       }
