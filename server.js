@@ -30,7 +30,7 @@ const openai = new OpenAI();
 
 // Deepgram Text to Speech Websocket
 const WebSocket = require('ws');
-const deepgramTTSWebsocketURL = 'wss://api.beta.deepgram.com/v1/speak?encoding=mulaw&sample_rate=8000&container=none';
+const deepgramTTSWebsocketURL = 'wss://api.deepgram.com/v1/speak?encoding=mulaw&sample_rate=8000&container=none';
 
 // Performance Timings
 let llmStart = 0;
@@ -309,7 +309,7 @@ const setupDeepgram = (mediaStream) => {
               "streamSid": streamSid,
             });
             mediaStream.connection.sendUTF(messageJSON);
-            mediaStream.deepgramTTSWebsocket.send(JSON.stringify({ 'type': 'Reset' }));
+            mediaStream.deepgramTTSWebsocket.send(JSON.stringify({ 'type': 'Clear' }));
             speaking = false;
           }
         }
