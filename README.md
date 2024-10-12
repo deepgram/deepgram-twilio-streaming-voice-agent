@@ -98,7 +98,7 @@ ngrok http 8080
 
 You will see a url under the `Forwarding`row that --> to your localhost. Copy this as the `<ngrok url>`
 
-5. Edit the [templates/streams](templates/streams.xml) file to replace `<ngrok url>` with your ngrok host. Example: `wss://abcdef.ngrok.io/streams`. Remember to use `wss://` and include `/streams` in the url 
+5. Edit the [templates/streams](templates/streams.xml) file to replace `<ngrok url>` with your ngrok host. Example: `wss://abcdef.ngrok-free.app/streams`. Remember to use `wss://` and include `/streams` in the url 
 
 6. Go to your Twilio page where you manage your phone number. Under the Configure tab, replace the webhook URL where the call comes in to your ngrok url. Example: `https://abcdef.ngrok-free.app/twiml` . Remember to use `https://` and include `/twiml`
 
